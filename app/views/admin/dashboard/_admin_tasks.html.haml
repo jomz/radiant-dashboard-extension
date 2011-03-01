@@ -1,0 +1,5 @@
+- if admin?
+  %li
+    = link_to(t('manage_users'), admin_users_path, :class => 'admin')
+  %li
+    = link_to(t('radiant_configuration'), admin_configuration_path, :class => 'admin')

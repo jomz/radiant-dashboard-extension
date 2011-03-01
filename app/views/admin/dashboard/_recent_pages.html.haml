@@ -1,0 +1,6 @@
+- recent_pages = Page.published.latest(20)
+
+#updated_pages.box
+  %h2
+    = t('recent_pages')
+  = page_table_if_any(recent_pages)
