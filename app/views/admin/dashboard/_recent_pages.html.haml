@@ -1,6 +1,4 @@
-- recent_pages = Page.published.latest(20)
-
-#updated_pages.box
+#updated_pages.dashboard_module
   %h2
-    = t('recent_pages')
-  = page_table_if_any(recent_pages)
+    = t('latest_edits')
+  = page_table_if_any(Page.published.latest(8))

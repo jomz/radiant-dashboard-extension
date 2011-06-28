@@ -17,9 +17,7 @@ module Radiant::Dashboard::AdminUI
       end
       
       def add_to_dashboard(partial, region=:main, options={})
-        if admin.dashboard.respond_to?(region)
-          admin.dashboard.send(region).add partial, options
-        end
+        dashboard.index.add region, partial, options
       end
       
     protected
@@ -27,7 +25,7 @@ module Radiant::Dashboard::AdminUI
       def load_default_dashboard_regions
         returning OpenStruct.new do |dashboard|
           dashboard.index = Radiant::AdminUI::RegionSet.new do |index|
-            index.main.concat %w{draft_pages recent_pages}
+            index.main.concat %w{draft_pages recent_pages recent_assets}
             index.margin.concat %w{user_info quicklinks}
             index.tasks.concat %w{user_tasks admin_tasks}
             index.node.concat %w{title_column status_column actions_column}

@@ -1,5 +1,5 @@
 - draft_pages = admin? ? Page.drafts : current_user.pages.drafts
-#draft_pages.box
+#draft_pages.dashboard_module
   %h2 
     = t(admin? ? 'draft_pages' : 'your_draft_pages')
   = page_table_if_any(draft_pages)

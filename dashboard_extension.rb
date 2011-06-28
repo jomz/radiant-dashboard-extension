@@ -14,7 +14,7 @@ class DashboardExtension < Radiant::Extension
     end
 
     tab('Content') do
-      add_item 'Dashboard', "/admin/dashboard", :before => "Pages"
+      add_item "☆", "/admin/dashboard", :before => "Pages"
     end
   end
     

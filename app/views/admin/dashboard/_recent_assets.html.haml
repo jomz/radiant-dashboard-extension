@@ -1,0 +1,7 @@
+#updated_assets.dashboard_module.attachment_list
+  %h2
+    = t('latest_assets')
+  %ul.assets
+    = render :partial => 'admin/assets/asset', :collection => Asset.latest(6)
+      
+    

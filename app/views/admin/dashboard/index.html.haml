@@ -1,10 +1,10 @@
-- body_classes << "dashboard"
+- body_classes << "sideboard"
 - include_stylesheet 'admin/dashboard'
 
 #dashboard.outset
-  #primary
-    = render_region :main
-  #secondary
+  #marginalia
     = render_region :margin
+  #pagecontent
+    = render_region :main
 
 
