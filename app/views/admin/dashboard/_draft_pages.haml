@@ -1,5 +1,8 @@
-- draft_pages = admin? ? Page.drafts : current_user.pages.drafts
+- draft_pages = admin? ? Page.drafts.latest(6) : current_user.pages.drafts.latest(6)
+
 #draft_pages.dashboard_module
-  %h2 
-    = t(admin? ? 'draft_pages' : 'your_draft_pages')
-  = page_table_if_any(draft_pages)
+  .header
+    %h2
+      = t(admin? ? 'dashboard_extension.draft_pages' : 'dashboard_extension.your_draft_pages')
+  .blockcontent
+    = page_list_if_any(draft_pages)

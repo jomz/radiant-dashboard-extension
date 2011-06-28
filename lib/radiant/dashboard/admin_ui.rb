@@ -25,9 +25,8 @@ module Radiant::Dashboard::AdminUI
       def load_default_dashboard_regions
         returning OpenStruct.new do |dashboard|
           dashboard.index = Radiant::AdminUI::RegionSet.new do |index|
-            index.main.concat %w{draft_pages recent_pages recent_assets}
-            index.margin.concat %w{user_info quicklinks}
-            index.tasks.concat %w{user_tasks admin_tasks}
+            index.main.concat %w{shortcuts user_info recent_pages draft_pages user_tasks recent_assets}
+            index.shortcuts.concat %w{}
             index.node.concat %w{title_column status_column actions_column}
           end
         end

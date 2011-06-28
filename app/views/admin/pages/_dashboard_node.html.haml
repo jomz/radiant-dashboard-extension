@@ -1,0 +1,10 @@
+- unless page.virtual?
+  .page
+    %h3
+      = link_to("#{icon} #{node_title}", edit_admin_page_url(page), :title => page.url, :class => 'page')
+      = link_to("&rarr;", page.path, :class => 'public')
+    %p.minor
+      - if page.updated_by
+        =t('dashboard_extension.page_updated_by', :author => page.updated_by.name, :date => l(page.updated_at, :format => :short))
+      - else
+        =t('dashboard_extension.page_created_by', :author => page.created_by.name, :date => l(page.created_at, :format => :short))

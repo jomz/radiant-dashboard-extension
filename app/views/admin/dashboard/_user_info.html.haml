@@ -1,13 +1,16 @@
-.user_info.dashboard_module
-  %h1
+#user_info.dashboard_module
+  .blockcontent
     %a{:href => admin_preferences_url}
       = image_tag(gravatar_url(current_user.email, :size=>"32px"), :class=>"avatar avatar_32x32", :width=>32, :height=>32, :alt=>"")
-      = current_user.name
-  %p.subhead.inset
-    = current_user.email
-  %p.minor
-    = link_to t('preferences'), admin_preferences_url
-    \|
-    = link_to t('change_avatar'), "http://gravatar.com/site/signup/"
-    \|
-    = link_to t('log_out'), logout_url
+    %div.hanging
+      %h1
+        %a{:href => admin_preferences_url}
+          = current_user.name
+      %p.subhead
+        = current_user.email
+      %p.minor
+        = link_to t('preferences'), admin_preferences_url
+        \|
+        = link_to t('dashboard_extension.change_avatar'), "http://gravatar.com/site/signup/"
+        \|
+        = link_to t('log_out'), logout_url

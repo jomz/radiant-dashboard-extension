@@ -1,7 +1,11 @@
-#updated_assets.dashboard_module.attachment_list
-  %h2
-    = t('latest_assets')
-  %ul.assets
-    = render :partial => 'admin/assets/asset', :collection => Asset.latest(6)
-      
-    
+- include_stylesheet 'admin/assets'
+
+#recent_assets.dashboard_module
+  .header
+    %h2
+      = t('dashboard_extension.latest_assets')
+  .contentblock.assets
+    %ul
+      = render :partial => 'admin/assets/asset', :collection => Asset.latest(12)
+    %p.minor
+      = link_to t('clipped_extension.upload_asset'), new_admin_asset_url

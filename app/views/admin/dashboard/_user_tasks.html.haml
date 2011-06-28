@@ -1,2 +1,12 @@
-%li
-  = link_to(t('edit_profile'), admin_preferences_path)
+#user_tasks.dashboard_module
+  .blockcontent
+    %h2
+      =t('dashboard_extension.quicklinks')
+    %ul.links
+      %li
+        = link_to(t('dashboard_extension.edit_profile'), admin_preferences_path)
+    - if admin?
+      %li
+        = link_to(t('dashboard_extension.manage_users'), admin_users_path, :class => 'admin')
+      %li
+        = link_to(t('dashboard_extension.radiant_configuration'), admin_configuration_path, :class => 'admin')

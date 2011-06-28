@@ -1,5 +1,6 @@
 module Admin::DashboardHelper
   include Admin::NodeHelper
+  include Admin::PagesHelper
   
   def updater_name_for(obj, options={})
     associations = *options[:associations] || [:updated_by, :created_by]
@@ -19,17 +20,23 @@ module Admin::DashboardHelper
     answer
   end
   
-  def page_table(pages)
-    rows = pages.collect { |page| render_node(page) }
-    content_tag(:table, content_tag(:tbody, rows), :class => "index pages")
+  def page_list(pages)
+    rows = pages.collect { |page| render_dashboard_node(page, :level => 0) }
+    content_tag(:div, rows, :class => "pages")
   end
 
-  def page_table_if_any(pages)
+  def page_list_if_any(pages)
     if pages.any?
-      page_table(pages)
+      page_list(pages)
     else
-      content_tag(:p, t('no_show'), :class => 'minor')
+      content_tag(:p, t('dashboard_extension.no_show'), :class => 'minor')
     end
+  end
+
+  def render_dashboard_node(page, locals = {})
+    @current_node = page
+    locals.merge!(:page => page)
+    render :partial => 'admin/pages/dashboard_node', :locals =>  locals
   end
 
 end

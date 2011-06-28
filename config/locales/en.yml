@@ -1,13 +1,16 @@
 en:
-  change_avatar: "Change avatar"
-  draft_pages: "Draft pages"
-  edit_profile: 'Edit your Profile'
-  latest_assets: "Latest assets"
-  latest_edits: "Latest edits"
-  manage_users: 'Manage Users'
-  no_show: "Nothing to report"
-  quicklinks: "Quicklinks"
-  shortcuts: "Quicklinks"
-  radiant_configuration: "Radiant configuration"
-  your_draft_pages: "Your draft pages"
-  your_published_pages: "Your recently published pages"
+  dashboard_extension:
+    change_avatar: "Change avatar"
+    draft_pages: "Draft pages"
+    edit_profile: 'Edit your Profile'
+    latest_assets: "Latest assets"
+    latest_edits: "Latest edits"
+    manage_users: 'Manage Users'
+    no_show: "Nothing to report"
+    quicklinks: "Quicklinks"
+    shortcuts: "Quicklinks"
+    radiant_configuration: "Radiant configuration"
+    your_draft_pages: "Your draft pages"
+    your_published_pages: "Your recently published pages"
+    page_created_by: "created by %{author} on %{date}"
+    page_updated_by: "updated by %{author} on %{date}"

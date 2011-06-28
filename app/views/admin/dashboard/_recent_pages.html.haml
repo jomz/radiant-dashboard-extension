@@ -1,4 +1,6 @@
-#updated_pages.dashboard_module
-  %h2
-    = t('latest_edits')
-  = page_table_if_any(Page.published.latest(8))
+#recent_pages.dashboard_module
+  .header
+    %h2
+      = t('dashboard_extension.latest_edits')
+  .blockcontent
+    = page_list_if_any(Page.published.latest(6))
