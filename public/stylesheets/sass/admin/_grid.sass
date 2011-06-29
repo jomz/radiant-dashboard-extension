@@ -4,21 +4,23 @@
 $grid-container-width: 100%
 $grid-columns: 12
 $grid-margin: 1%
-$box: $grid-container-width/$grid-columns
+$box: $grid-container-width / $grid-columns
 
 =grid-container
-  :width $grid-container-width
-  :position relative
-  :margin-left auto
-  :margin-right auto
+  width: $grid-container-width
+  position: relative
+  margin-left: auto
+  margin-right: auto
+  overflow: hidden
 
 =grid($count: 3)
-  :position relative
-  :display inline
-  :float left
-  :width ($count * $box) - $grid-margin
-  :margin-right $grid-margin
-  :margin-top $grid-margin
+  position: relative
+  display: inline
+  float: left
+  overflow: hidden
+  width: $count * $box - $grid-margin
+  margin-right: $grid-margin
+  margin-top: $grid-margin
 
 =offset($count: 1)
-  margin-left: ($count * $box)
+  margin-left: $count * $box

@@ -8,9 +8,3 @@
           = current_user.name
       %p.subhead
         = current_user.email
-      %p.minor
-        = link_to t('preferences'), admin_preferences_url
-        \|
-        = link_to t('dashboard_extension.change_avatar'), "http://gravatar.com/site/signup/"
-        \|
-        = link_to t('log_out'), logout_url

@@ -7,5 +7,5 @@
   .contentblock.assets
     %ul
       = render :partial => 'admin/assets/asset', :collection => Asset.latest(12)
-    %p.minor
+    %p.footer
       = link_to t('clipped_extension.upload_asset'), new_admin_asset_url

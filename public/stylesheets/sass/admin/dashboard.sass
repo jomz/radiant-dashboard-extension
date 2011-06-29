@@ -12,12 +12,13 @@ body.dashboard
 
 #dashboard
   +grid-container
+  margin-bottom: 40px
   .shortcut
     +grid(2)
-    height: 90px
+    height: 60px
   #user_info
     +grid(4)
-    height: 90px
+    height: 60px
   #recent_pages
     +grid(5)
     height: 400px
@@ -130,9 +131,16 @@ body.dashboard
   p.minor
     margin: 0
 
-#recent_assets
-  p.minor
-    clear: left
-
+p.footer
+  clear: left
+  margin: 10px
+  padding-top: 20px
+  font-size: 80%
+  color: #bbb8ac
+  a
+    color: #bbb8ac
+    &:hover
+      color: #06c
+  
 .hanging
   overflow: hidden
