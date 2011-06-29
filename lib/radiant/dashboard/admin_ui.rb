@@ -23,7 +23,7 @@ module Radiant::Dashboard::AdminUI
     protected
 
       def load_default_dashboard_regions
-        returning OpenStruct.new do |dashboard|
+        OpenStruct.new.tap do |dashboard|
           dashboard.index = Radiant::AdminUI::RegionSet.new do |index|
             index.main.concat %w{shortcuts user_info recent_pages draft_pages user_tasks recent_assets}
             index.shortcuts.concat %w{}

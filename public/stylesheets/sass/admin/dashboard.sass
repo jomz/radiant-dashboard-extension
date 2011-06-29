@@ -2,6 +2,12 @@
 @import admin/grid
 
 $grid-border-radius: 4px
+$shortcut-bg: #c00
+$shortcut-bg-hover: #d11
+
+=buttonbg($color: $shortcut-bg)
+  background-color: $color
+  +linear-gradient(color-stops($color, darken($color,8), $color, $color))
 
 body.dashboard
   background-color: #9b1200
@@ -111,6 +117,27 @@ body.dashboard
     p
       padding-top: 1em
       clear: left
+
+.shortcut
+  +buttonbg
+  font-size: 110%
+  line-height: 60px
+  text-align: center
+  color: white
+  text-decoration: none
+  &.empty
+    +buttonbg(#b23839)
+  &.green
+    +buttonbg(#8ebc65)
+  &.blue
+    +buttonbg(#549dc4)
+  &.orange
+    +buttonbg(#efa31f)
+  &.grey
+    +buttonbg(#afafaf)
+
+a.shortcut:hover
+  +buttonbg($shortcut-bg-hover)
 
 #user_info
   img.avatar
