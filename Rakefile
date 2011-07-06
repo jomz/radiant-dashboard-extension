@@ -1,19 +1,3 @@
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "radiant-dashboard-extension"
-    gem.summary = %Q{Dashboard Extension for Radiant CMS}
-    gem.description = %Q{Dashboard provides a way to see recent activity in Radiant, and allows extension developers to add to the interface with Radiant regions.}
-    gem.email = "jim@saturnflyer.com"
-    gem.homepage = "http://github.com/saturnflyer/radiant-dashboard-extension"
-    gem.authors = ["Jim Gay"]
-    gem.add_dependency "radiant", ">= 0.9.0"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
-  end
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. This is only required if you plan to package dashboard as a gem."
-end
-
 # In rails 1.2, plugins aren't available in the path until they're loaded.
 # Check to see if the rspec plugin is installed first and require
 # it if it is.  If not, use the gem version.

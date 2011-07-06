@@ -6,6 +6,6 @@
       = t('dashboard_extension.latest_assets')
   .contentblock.assets
     %ul
-      = render :partial => 'admin/assets/asset', :collection => Asset.latest(12)
+      = render :partial => 'admin/assets/asset', :collection => Asset.latest(8)
     %p.footer
       = link_to t('clipped_extension.upload_asset'), new_admin_asset_url

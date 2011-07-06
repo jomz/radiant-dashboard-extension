@@ -1,5 +1,8 @@
 #shortcuts
-  - render_region :shortcuts
-  - (4 - admin.dashboard.index.shortcuts.length).times do
-    %span.shortcut.dashboard_module.empty
-      &nbsp;
+  - dashboard_links = DashboardLink.all
+  - dashboard_links.each do |dl|
+    = dashboard_link(dl)
+      
+  - if dashboard_links.length < 4
+    - (4 - dashboard_links.length).times do
+      = empty_dashboard_link

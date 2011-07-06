@@ -1,0 +1,26 @@
+- form_for [:admin, @dashboard_link] do |f|
+  = render_region :form_top
+  .form-area
+    - render_region :form do |form|
+      - form.edit_title do
+        %p.title
+          = f.label :title
+          = f.text_field :title, :class => 'title'
+
+      - form.edit_path do
+        %p.path
+          = f.label :path
+          = f.text_field :path
+
+      - form.edit_cssclass do
+        %p.cssclass
+          = f.label :cssclass
+          = f.text_field :cssclass
+  
+  - render_region :form_bottom do |form_bottom|
+    - form_bottom.edit_buttons do
+      %p.buttons
+        = save_model_button(@dashboard_link)
+        = save_model_and_continue_editing_button(@dashboard_link)
+        or
+        = link_to 'Cancel', dashboard_url

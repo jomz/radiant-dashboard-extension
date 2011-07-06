@@ -1,0 +1,43 @@
+- @page_title = t('dashboard_extension.dashboard_links') + ' - ' + default_page_title
+- include_stylesheet 'admin/dashboard'
+
+= render_region :top 
+
+#dashboard_links_table.outset
+  %table.index
+    %thead
+      %tr
+        - render_region :thead do |thead|
+          - thead.title_header do
+            %th.key= t('activerecord.attributes.dashboard_link.title')
+
+          - thead.path_header do
+            %th.key= t('activerecord.attributes.dashboard_link.path')
+
+          - thead.action_header do
+            %th 
+    %tbody
+      - @dashboard_links.each do |dl|
+        %tr
+
+          - render_region :tbody do |tbody|
+            - tbody.title_cell do
+              %td.title
+                = link_to image('shortcut', :alt => ''), admin_dashboard_link_url(dl)
+                = link_to dl.title, admin_dashboard_link_url(dl)
+
+            - tbody.path_cell do
+              %td.path
+                =h dl.path 
+
+            - tbody.action_cell do
+              %td.actions
+                = link_to image('minus') + ' ' + t('remove'), admin_dashboard_link_path(dl), :confirm => t('dashboard_extension.really_delete_link?', :name => dl.title), :method => :delete, :class => 'action'
+              
+
+- render_region :bottom do |bottom|
+  - bottom.buttons do
+    #actions
+      = pagination_for @dashboard_links
+      %ul
+        %li= link_to image('plus') + " " + t('dashboard_extension.new_dashboard_link'), new_admin_dashboard_link_url

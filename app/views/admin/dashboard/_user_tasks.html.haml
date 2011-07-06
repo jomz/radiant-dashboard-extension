@@ -1,19 +1,21 @@
 #user_tasks.dashboard_module
+  .header
+    %h2
+      = t('dashboard_extension.useful_links')
   .blockcontent
-    %h3
-      Personal
     %ul.links
       %li
         = link_to t('preferences'), admin_preferences_url
       %li
         = link_to t('dashboard_extension.change_avatar'), "http://gravatar.com/site/signup/"
-      %li
-        = link_to t('log_out'), logout_url
-    - if admin?
-      %h3
-        Admin
-      %ul.links
+      - if admin?
+        %li
+          = link_to(t('dashboard_extension.edit_dashboard_links'), admin_dashboard_links_path, :class => 'admin')
+        %li
+          = link_to(t('dashboard_extension.reset_dashboard_modules'), '#', :class => 'admin notyet')
         %li
           = link_to(t('dashboard_extension.manage_users'), admin_users_path, :class => 'admin')
         %li
           = link_to(t('dashboard_extension.radiant_configuration'), admin_configuration_path, :class => 'admin')
+      %li
+        = link_to t('log_out'), logout_url

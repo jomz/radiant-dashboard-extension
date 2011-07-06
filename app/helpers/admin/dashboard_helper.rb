@@ -38,5 +38,17 @@ module Admin::DashboardHelper
     locals.merge!(:page => page)
     render :partial => 'admin/pages/dashboard_node', :locals =>  locals
   end
+  
+  def dashboard_link(dl)
+    link_to dl.title, dl.path, :class => "shortcut dashboard_module #{dl.cssclass}"
+  end
+  
+  def empty_dashboard_link
+    if admin?
+      link_to t('dashboard_extension.add_dashboard_link'), new_admin_dashboard_link_url, :class => "shortcut dashboard_module empty"
+    else
+      content_tag(:span, "&nbsp;", :class => 'shortcut dashboard_module empty')
+    end
+  end
 
 end

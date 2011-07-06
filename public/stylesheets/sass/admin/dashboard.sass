@@ -27,19 +27,20 @@ body.dashboard
     height: 60px
   #recent_pages
     +grid(5)
-    height: 400px
+    height: 300px
   #draft_pages
     +grid(5)
-    height: 400px
+    height: 300px
   #user_tasks
     +grid(2)
-    height: 400px
+    height: 300px
   #recent_assets
     +grid(12)
     min-height: 110px
 
 .dashboard_module
-  overflow: hidden
+  overflow-x: hidden
+  overflow-y: auto
   background-color: white
   +linear-gradient(color-stops(#ffffff, #eeeeee))
   +box-shadow
@@ -119,6 +120,7 @@ body.dashboard
       clear: left
 
 .shortcut
+  overflow: hidden
   +buttonbg
   font-size: 110%
   line-height: 60px
@@ -127,14 +129,6 @@ body.dashboard
   text-decoration: none
   &.empty
     +buttonbg(#b23839)
-  &.green
-    +buttonbg(#8ebc65)
-  &.blue
-    +buttonbg(#549dc4)
-  &.orange
-    +buttonbg(#efa31f)
-  &.grey
-    +buttonbg(#afafaf)
 
 a.shortcut:hover
   +buttonbg($shortcut-bg-hover)

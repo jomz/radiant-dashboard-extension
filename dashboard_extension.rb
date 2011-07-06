@@ -1,12 +1,15 @@
 require_dependency 'application_controller'
+require 'radiant-dashboard-extension'
+
 class DashboardExtension < Radiant::Extension
-  version "1.4.0"
-  description "Dashboard provides a way to view recent activity in Radiant and gives small extensions a place to grow."
-  url "http://saturnflyer.com/"
+  version RadiantDashboardExtension::VERSION
+  description RadiantDashboardExtension::DESCRIPTION
+  url RadiantDashboardExtension::URL
   
   def activate
     Page.send :include, Radiant::Dashboard::Page
     Admin::WelcomeController.send :include, Radiant::Dashboard::WelcomeController
+    UserActionObserver.instance.send :add_observer!, DashboardLink
     
     unless defined? admin.dashboard
       Radiant::AdminUI.send :include, Radiant::Dashboard::AdminUI
