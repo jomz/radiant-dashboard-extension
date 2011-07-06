@@ -40,12 +40,18 @@ module Admin::DashboardHelper
   end
   
   def dashboard_link(dl)
-    link_to dl.title, dl.path, :class => "shortcut dashboard_module #{dl.cssclass}"
+    title = dl.title.sub(/\|/, "<br />")
+    if dl.cssclass
+      link_to content_tag(:span, title, :class => dl.cssclass), dl.path, :class => "shortcut dashboard_module"
+    else
+      link_to title, dl.path, :class => "shortcut dashboard_module"
+    end
   end
   
   def empty_dashboard_link
+    title = t('dashboard_extension.add_dashboard_link').sub(/\|/, "<br />")
     if admin?
-      link_to t('dashboard_extension.add_dashboard_link'), new_admin_dashboard_link_url, :class => "shortcut dashboard_module empty"
+      link_to content_tag(:span, title, :class => 'new'), new_admin_dashboard_link_url, :class => "shortcut dashboard_module empty"
     else
       content_tag(:span, "&nbsp;", :class => 'shortcut dashboard_module empty')
     end

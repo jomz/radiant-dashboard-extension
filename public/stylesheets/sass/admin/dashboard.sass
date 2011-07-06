@@ -92,7 +92,7 @@ body.dashboard
     width: 100%
     margin: 0 -10px
   ul.links
-    padding-left: 20px
+    padding-left: 14px
     li
       list-style: square
       span.title
@@ -103,6 +103,9 @@ body.dashboard
         text-decoration: none
         &.admin
           color: #c00
+        &.notyet
+          color: #ccc
+          text-decoration: line-through
         &:hover
           color: #06c
   a.icon
@@ -122,16 +125,35 @@ body.dashboard
 .shortcut
   overflow: hidden
   +buttonbg
-  font-size: 110%
-  line-height: 60px
-  text-align: center
+  font-size: 100%
+  height: 60px
+  text-align: left
   color: white
   text-decoration: none
   &.empty
     +buttonbg(#b23839)
-
+    color: #d88
+  span
+    display: block
+    margin: 14px
+    padding-left: 40px
+    line-height: 1.1
+    background-position: top left
+    background-repeat: no-repeat
+    &.new
+      background-image: url("/images/admin/dashboard/link.png")
+    &.page
+      background-image: url("/images/admin/dashboard/page.png")
+    &.person
+      background-image: url("/images/admin/dashboard/person.png")
+    &.asset
+      background-image: url("/images/admin/dashboard/asset.png")
+    &.topic
+      background-image: url("/images/admin/dashboard/topic.png")
+  
 a.shortcut:hover
   +buttonbg($shortcut-bg-hover)
+  color: white
 
 #user_info
   img.avatar

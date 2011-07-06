@@ -6,7 +6,7 @@ en:
         path: "Link destination"
         cssclass: "CSS class (optional)"
   dashboard_extension:
-    add_dashboard_link: "add link"
+    add_dashboard_link: "add new|link here"
     change_avatar: "Change avatar"
     create_dashboard_link: "Create dashboard link"
     dashboard_links: "Dashboard links"
